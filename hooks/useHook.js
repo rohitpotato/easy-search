@@ -27,7 +27,7 @@ const {
 } = localStorageKeys;
 
 export const useHook = () => {
-  const [term, setTerm] = useState("");
+  const [terms, setTerms] = useState([]);
   const [selectedSites, setSelectedSites] = useState({});
   const [fileFormat, setFileFormat] = useState("");
   const [excludedTerms, setExcludedTerms] = useState("");
@@ -52,7 +52,7 @@ export const useHook = () => {
 
   const handleTermChange = (event) => {
     const { value } = event.target;
-    setTerm(value);
+    setTerms(value);
   };
 
   const handleExcludeTerm = (e) => {
@@ -90,21 +90,29 @@ export const useHook = () => {
       .map((selected) => encodeURIComponent(`${site}${selected}`))
       .join(`${siteJoinChar}`);
 
-  const getTerm = () => {
-    let toSearch = "";
-    if (isExact) {
-      toSearch += `"${term.split(" ").join(queryJoiner)}"`;
-    } else {
-      toSearch += term.split(" ").join(queryJoiner);
-    }
-    if (excludedTerms) {
-      toSearch += `${exclude}${excludedTerms.split(" ").join(exclude)}`;
+  const formatSearchTerm = () => {
+    let res = "";
+    terms.forEach((term) => {
+      res += isExact
+        ? `"${term.split(" ").join(queryJoiner)}"`
+        : term.split(" ").join(queryJoiner);
+    });
+    return res;
+  };
+
+  const formatExcludeTerm = () =>
+    `${exclude}${excludedTerms.split(" ").join(exclude)}`;
+
+  const getTerms = () => {
+    let toSearch = formatSearchTerm();
+    if (excludedTerms.length) {
+      toSearch += formatExcludeTerm();
     }
     return toSearch;
   };
 
   const onSubmitClick = () => {
-    const term = getTerm();
+    const term = getTerms();
     const query = `${termParam}${term}`;
     const sites = getSitesURIComponent();
     let final = `${baseUrl}?${query}`;
@@ -136,16 +144,18 @@ export const useHook = () => {
   // const handleAddCustomPublishMonth = () => {};
 
   return {
-    handleTermChange,
-    handleExcludeTerm,
-    handleFileFormat,
-    handleIsExact,
-    handleSiteSelect,
-    handlePublishSelect,
+    // handleTermChange,
+    // handleExcludeTerm,
+    // handleFileFormat,
+    // handleIsExact,
+    // handleSiteSelect,
+    // handlePublishSelect,
+    setTerms,
     onSubmitClick,
     allSites,
     allFileExtensions,
     allLastPublished,
-    handleAddCustomFileFormat,
+    terms,
+    // handleAddCustomFileFormat,
   };
 };
