@@ -1,11 +1,11 @@
 .container {
-  max-width: 100%;
   width: 100%;
-  overflow: scroll;
+}
+
+.inputSectionContainer {
+  max-width: 100%;
   display: flex;
   align-items: center;
-  /* gap: 1rem; */
-  /* background: gray; */
   padding: 0.5rem 1rem;
   border: 1px solid var(--block-border-color);
   border-radius: 4px;
@@ -13,10 +13,11 @@
 }
 
 .tagsContainer {
-  max-width: 60%;
   display: flex;
-  overflow: scroll;
+  max-width: 100%;
   scrollbar-width: none;
+  flex-wrap: wrap;
+  transition: all 0.2s ease-in;
 }
 
 .tagContainer {
@@ -27,8 +28,7 @@
   background: var(--block-bg);
   padding: 0.4rem 0.8rem;
   border-radius: 4px;
-  margin: 0 0.2rem;
-  transition: all 0.2s ease;
+  margin: 0.4rem 0.2rem;
 }
 
 .tag {
@@ -36,7 +36,7 @@
 }
 
 .inputContainer {
-  width: 40%;
+  width: 100%;
 }
 
 .input {

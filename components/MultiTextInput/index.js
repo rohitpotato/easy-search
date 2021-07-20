@@ -64,38 +64,42 @@ export const MultiTextInput = ({
   };
 
   return (
-    <div className={styles.container} style={containerStyle}>
-      {LeftIcon}
-      <div className={styles.tagsContainer}>
-        {tags.map((tag, index) => (
-          <div
-            className={styles.tagContainer}
-            style={tagContainerStyle}
-            key={tag}
-          >
-            <div style={tagStyle} className={styles.tag}>
-              {tag}
-            </div>
-            <button
-              onClick={() => onRemove(index)}
-              className={styles.removeTag}
-            >
-              &times;
-            </button>
+    <>
+      <div className={styles.container} style={containerStyle}>
+        <div className={styles.inputSectionContainer}>
+          {LeftIcon}
+          <div style={inputContainerStyle} className={styles.inputContainer}>
+            <input
+              className={styles.input}
+              style={inputStyle}
+              value={term}
+              placeholder={placeholder}
+              onChange={handleInputChange}
+              onKeyUp={handleOnKeyUp}
+              onKeyDown={handleOnKeyDown}
+            />
           </div>
-        ))}
+        </div>
+        <div className={styles.tagsContainer}>
+          {tags.map((tag, index) => (
+            <div
+              className={styles.tagContainer}
+              style={tagContainerStyle}
+              key={tag}
+            >
+              <div style={tagStyle} className={styles.tag}>
+                {tag}
+              </div>
+              <button
+                onClick={() => onRemove(index)}
+                className={styles.removeTag}
+              >
+                &times;
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
-      <div style={inputContainerStyle} className={styles.inputContainer}>
-        <input
-          className={styles.input}
-          style={inputStyle}
-          value={term}
-          placeholder={placeholder}
-          onChange={handleInputChange}
-          onKeyUp={handleOnKeyUp}
-          onKeyDown={handleOnKeyDown}
-        />
-      </div>
-    </div>
+    </>
   );
 };
