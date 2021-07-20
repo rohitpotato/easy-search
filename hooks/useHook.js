@@ -30,7 +30,7 @@ export const useHook = () => {
   const [terms, setTerms] = useState([]);
   const [selectedSites, setSelectedSites] = useState({});
   const [fileFormat, setFileFormat] = useState("");
-  const [excludedTerms, setExcludedTerms] = useState("");
+  const [excludedTerms, setExcludedTerms] = useState([]);
   const [isExact, setIsExact] = useState("");
   const [lastPublished, setLastPublished] = useState("");
   const [customSites, setCustomSites] = useLocalStorage(sitesKey, {});
@@ -151,11 +151,13 @@ export const useHook = () => {
     // handleSiteSelect,
     // handlePublishSelect,
     setTerms,
+    setExcludedTerms,
     onSubmitClick,
     allSites,
     allFileExtensions,
     allLastPublished,
     terms,
+    excludedTerms,
     // handleAddCustomFileFormat,
   };
 };

@@ -2,8 +2,12 @@ import Image from "next/image";
 import React from "react";
 import { ThemeSwitchButton } from "../ThemeSwitchButton";
 import { SearchInput } from "../SearchInput";
+import { Header } from "../Header";
+import { Button } from "../Button";
 import { toTitleCase } from "../../utils";
 import { useHook } from "../../hooks/useHook";
+import { SectionSeparator } from "../SectionSeparator";
+import { ExcludedTerms } from "../ExcludeTerms";
 import styles from "./container.module.css";
 
 const Container = () => {
@@ -18,27 +22,38 @@ const Container = () => {
     // handleTermChange,
     // handlePublishSelect,
     setTerms,
+    setExcludedTerms,
     onSubmitClick,
     terms: searchTerms,
+    excludedTerms,
     // handleAddCustomFileFormat,
   } = useHook();
 
   return (
     <div className={styles.container}>
-      <div className={styles.logoContainer}>
-        <Image src="/icons/logo.svg" height={40} width={40} alt="site_logo" />
-        <h1 className={styles.logoText}>Easy Search</h1>
-      </div>
-      <div className={styles.subTextContainer}>
-        <span className={styles.subText}>
-          Get what you want from Google by limiting sites, dates, file formats
-          and more.
-        </span>
-      </div>
-      <div className={styles.searchInputContainer}>
+      <Header />
+      {/* Search Term Input Container  */}
+      <div className={`${styles.searchInputContainer} ${styles.sectionMargin}`}>
         <SearchInput setTerms={setTerms} searchTerms={searchTerms} />
+        <div className={styles.submitQueryButton}>
+          <Button text="Search" />
+        </div>
+      </div>
+      {/* Exclude Search Terms Container */}
+      <div
+        className={`${styles.excludeTermsContainer} ${styles.sectionMargin}`}
+      >
+        <SectionSeparator sectionHeading="Exclude Terms" />
+        <ExcludedTerms
+          setExcludedTerms={setExcludedTerms}
+          excludedTerms={excludedTerms}
+        />
+      </div>
+      <div className={`${styles.websiteContainer} ${styles.sectionMargin}`}>
+        <SectionSeparator sectionHeading="Websites to Search" />
       </div>
     </div>
+
     // <div>
     //   This is a container
     //   <div>

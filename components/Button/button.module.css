@@ -1,0 +1,11 @@
+.buttonContainer {
+  cursor: pointer;
+  border: 0;
+  background: var(--block-bg);
+  color: var(--block-text-color);
+  padding: 0.7rem 2rem;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  width: 100%;
+}

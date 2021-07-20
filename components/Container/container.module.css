@@ -4,30 +4,28 @@
   text-align: center;
 }
 
-.logoContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  text-align: center;
-}
-
-.logoText {
-  font-weight: 700;
-  font-size: 42px;
-}
-
-.subTextContainer {
-  margin-top: 1.5rem;
-}
-
-.subText {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.1rem;
-}
-
 .searchInputContainer {
-  width: 100%;
+  width: 80%;
   margin: 2rem 0;
+  display: flex;
+  gap: 1rem;
+  margin: 0 auto;
+}
+
+.excludeTermsContainer {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.sectionMargin {
+  margin-bottom: 3.75rem;
+}
+
+@media screen and (max-width: 640px) {
+  .submitQueryButton {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
 }
