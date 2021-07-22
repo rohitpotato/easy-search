@@ -1,17 +1,9 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-html {
+/* html {
   font-family: "Lato", sans-serif;
-}
-
-body {
-  min-height: 100vh;
-  transition: all 0.4s ease-in;
-  background: var(--bg-color);
   --bg-color: white;
   --block-bg: #343a40;
   --block-text-color: white;
@@ -19,8 +11,13 @@ body {
   --block-border-dark-color: var(--block-bg);
 }
 
-body.dark-mode {
-  background-color: var(--bg-color);
+body {
+  min-height: 100vh;
+  transition: all 0.4s ease-in;
+  background: var(--bg-color);
+}
+
+html.dark {
   --bg-color: #343a40;
   --block-bg: white;
   --block-text-color: #343a40;
@@ -29,10 +26,7 @@ body.dark-mode {
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    min-height: 100vh;
-    width: 80vw;
-    margin: 0 auto;
+  html {
     --bg-color: #343a40;
     --block-bg: white;
     --block-text-color: #white;
@@ -41,13 +35,11 @@ body.dark-mode {
     --block-border-dark-color: var(--block-bg);
   }
 
-  body.light-mode {
-    background: gray;
-    background: var(--bg-color);
+  html.light {
     --bg-color: white;
     --block-bg: #343a40;
     --block-text-color: white;
     --block-border-light-color: #c6c6c6;
     --block-border-dark-color: var(--block-bg);
   }
-}
+} */

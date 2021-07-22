@@ -1,20 +1,65 @@
 export const THEMES = {
-  DARK: "dark-mode",
-  LIGHT: "light-mode",
+  DARK: "dark",
+  LIGHT: "light",
 };
 
 export const supportedSites = {
-  stackoverflow: "stackoverflow.com",
-  reddit: "reddit.com",
+  stackoverflow: {
+    url: "stackoverflow.com",
+    name: "StackOverflow",
+    isCustom: false,
+    icon: "/icons/stackoverflow.svg",
+  },
+  reddit: {
+    url: "reddit.com",
+    name: "Reddit",
+    isCustom: false,
+    icon: "/icons/reddit.svg",
+  },
   // productHunt: "producthunt.com",
-  github: "github.com",
-  dribbble: "dribbble.com",
-  behance: "behance.com",
-  medium: "medium.com",
-  dev_to: "dev.to",
-  hackernews: "hackernews.com",
+  github: {
+    url: "github.com",
+    name: "Github",
+    isCustom: false,
+    icon: "/icons/github.svg",
+  },
+  dribbble: {
+    url: "dribbble.com",
+    name: "Dribbble",
+    isCustom: false,
+    icon: "/icons/dribbble.svg",
+  },
+  behance: {
+    url: "behance.com",
+    name: "Behance",
+    isCustom: false,
+    icon: "/icons/behance.svg",
+  },
+  medium: {
+    url: "medium.com",
+    name: "Medium",
+    isCustom: false,
+    icon: "/icons/medium.svg",
+  },
+  dev_to: {
+    url: "dev.to",
+    name: "Dev To",
+    isCustom: false,
+    icon: "/icons/devto.svg",
+  },
+  hackernews: {
+    url: "hackernews.com",
+    name: "Hacker News",
+    isCustom: false,
+    icon: "/icons/hackernews.svg",
+  },
   // hashnode: "hashnode.com",
-  mdn: "developer.mozilla.org",
+  mdn: {
+    url: "developer.mozilla.org",
+    name: "MDN",
+    isCustom: false,
+    icon: "/icons/mdn.svg",
+  },
 };
 
 export const datePublished = {

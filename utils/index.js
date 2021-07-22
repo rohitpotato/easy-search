@@ -2,16 +2,11 @@ import { THEMES } from "../constants";
 
 const { DARK, LIGHT } = THEMES;
 
-export const handleThemeInit = () => {
-  const currentTheme = localStorage.getItem("theme");
-  const prefersDarkTheme = window.matchMedia("(prefers-color-scheme: dark)");
-  if (!currentTheme && prefersDarkTheme) {
-    document.body.classList.toggle(DARK);
-  } else if (currentTheme === DARK) {
-    document.body.classList.toggle(DARK);
-  } else if (currentTheme === LIGHT) {
-    document.body.classList.toggle(LIGHT);
-  }
+export const handleThemeSwitch = (theme) => {
+  const root = window.document.documentElement;
+  const isDark = theme === DARK;
+  root.classList.remove(isDark ? LIGHT : DARK);
+  root.classList.add(theme);
 };
 
 export const toTitleCase = (str) =>

@@ -65,16 +65,6 @@ export const useHook = () => {
     setIsExact(checked);
   };
 
-  const handleSiteSelect = (site) => {
-    if (selectedSites[site]) {
-      const newSites = { ...selectedSites };
-      delete newSites[site];
-      setSelectedSites(newSites);
-    } else {
-      setSelectedSites((s) => ({ ...s, [site]: allSites[site] }));
-    }
-  };
-
   const handleFileFormat = (e) => {
     const { value } = event.target;
     setFileFormat(value);
@@ -87,7 +77,7 @@ export const useHook = () => {
 
   const getSitesURIComponent = () =>
     Object.values(selectedSites)
-      .map((selected) => encodeURIComponent(`${site}${selected}`))
+      .map(({ url }) => encodeURIComponent(`${site}${{ url }}`))
       .join(`${siteJoinChar}`);
 
   const formatSearchTerm = () => {
@@ -152,12 +142,14 @@ export const useHook = () => {
     // handlePublishSelect,
     setTerms,
     setExcludedTerms,
+    setSelectedSites,
     onSubmitClick,
     allSites,
     allFileExtensions,
     allLastPublished,
     terms,
     excludedTerms,
+    selectedSites,
     // handleAddCustomFileFormat,
   };
 };

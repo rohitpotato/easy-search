@@ -1,0 +1,27 @@
+.websitesContainer {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.container {
+  cursor: pointer;
+  background: white;
+  color: black;
+  padding: 1rem;
+  border-radius: 4px;
+  min-width: 6rem;
+  max-width: 8rem;
+  border: 1px solid blue;
+}
+
+.container:hover {
+  border: 1px solid burlywood;
+  color: white;
+}
+
+.container.siteSelected {
+  background-color: blue;
+  color: white;
+}
