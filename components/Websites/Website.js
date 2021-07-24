@@ -18,11 +18,13 @@ export const Website = ({ site, selectedSites, setSelectedSites }) => {
   const handleDeleteCustomSite = () => {
     // TODO
   };
-
+  console.log(icon);
   return (
     <button
       onClick={handleSelect}
-      className={`${styles.container} ${isSelected ? styles.siteSelected : ""}`}
+      className={`p-4 w-32 relative shadow hover:shadow-md ${
+        isSelected ? "bg-purple-300" : "bg-purple-100"
+      }`}
     >
       <div className={styles.iconContainer}>
         <Image src={icon} alt="site-icon" height={16} width={16} />
@@ -31,7 +33,7 @@ export const Website = ({ site, selectedSites, setSelectedSites }) => {
       {isCustom ? (
         <button
           onClick={handleDeleteCustomSite}
-          className={styles.removeSiteIcon}
+          className="absolute top-1 right-0"
         >
           <span>&times;</span>
         </button>

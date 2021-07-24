@@ -27,3 +27,5 @@ export const localStorageClient = () => {
     removeItem: () => {},
   };
 };
+
+export const noop = () => {};

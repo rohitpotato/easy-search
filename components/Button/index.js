@@ -5,10 +5,10 @@ import styles from "./button.module.css";
  * @return {HTMLButtonElement}
  */
 
-export const Button = ({ text, ...rest }) => {
+export const Button = ({ children, ...rest }) => {
   return (
     <button className={styles.buttonContainer} {...rest}>
-      {text}
+      {children}
     </button>
   );
 };

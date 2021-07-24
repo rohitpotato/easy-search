@@ -1,12 +1,21 @@
 import Image from "next/image";
 import { ThemeSwitchButton } from "../ThemeSwitchButton/";
-import styles from "./Header.module.css";
 
 export const Header = () => {
   return (
-    <header className="p-4 flex justify-between">
-      <div className="text-4xl font-bold font-titilium">Easy Search</div>
-      <ThemeSwitchButton />
-    </header>
+    <>
+      <nav className="fixed left-0">
+        <ThemeSwitchButton />
+      </nav>
+      <header className="">
+        <div className="p-8 flex justify-center items-center flex-col space-y-3 dark:text-white">
+          <div className="text-4xl font-bold font-titilium">Easy Search</div>
+          <div className="font-titilium tracking-widest leading-5 text-base">
+            Get specific results from Google by limiting sites, files, dates and
+            more
+          </div>
+        </div>
+      </header>
+    </>
   );
 };

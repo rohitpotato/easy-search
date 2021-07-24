@@ -9,7 +9,12 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ["group-focus", "group-hover"],
+      transition: ["group-focus"],
+      transform: ["group-focus"],
+      translate: ["group-hover", "group-focus"],
+    },
   },
   plugins: [],
 };

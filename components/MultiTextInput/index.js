@@ -1,6 +1,4 @@
-import { even } from "prelude-ls";
 import { useState, useEffect } from "react";
-import styles from "./MultiTextInput.module.css";
 
 export const MultiTextInput = ({
   tags = [],
@@ -11,7 +9,8 @@ export const MultiTextInput = ({
   inputContainerStyle = {},
   inputStyle = {},
   placeholder = "Enter a value",
-  LeftIcon = null,
+  LeftComponent = null,
+  RightComponent = null,
   onPressEnter,
   onBackSpace,
   onRemove,
@@ -65,12 +64,12 @@ export const MultiTextInput = ({
 
   return (
     <>
-      <div className={styles.container} style={containerStyle}>
-        <div className={styles.inputSectionContainer}>
-          {LeftIcon}
-          <div style={inputContainerStyle} className={styles.inputContainer}>
+      <div className="w-full rounded overflow-hidden" style={containerStyle}>
+        <div className="w-full flex gap-3 bg-gray-200 dark:bg-gray-300 py-3 border-2 border-purple-500 items-center relative">
+          {LeftComponent}
+          <div style={inputContainerStyle} className=" px-4 w-full">
             <input
-              className={styles.input}
+              className="outline-none w-full bg-gray-200 dark:bg-gray-300"
               style={inputStyle}
               value={term}
               placeholder={placeholder}
@@ -79,20 +78,19 @@ export const MultiTextInput = ({
               onKeyDown={handleOnKeyDown}
             />
           </div>
+          {RightComponent}
         </div>
-        <div className={styles.tagsContainer}>
+        <div style={tagContainerStyle} className="flex gap-2 mt-3 flex-wrap">
           {tags.map((tag, index) => (
             <div
-              className={styles.tagContainer}
+              className="py-1 px-2 flex gap-3 rounded bg-purple-300 text-purple-500"
               style={tagContainerStyle}
               key={tag}
             >
-              <div style={tagStyle} className={styles.tag}>
-                {tag}
-              </div>
+              <div style={tagStyle}>{tag}</div>
               <button
                 onClick={() => onRemove(index)}
-                className={styles.removeTag}
+                className="cursor-pointer"
               >
                 &times;
               </button>

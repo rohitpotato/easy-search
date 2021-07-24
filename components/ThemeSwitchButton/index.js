@@ -10,7 +10,16 @@ const ThemeSwitchButton = () => {
     setCurrentTheme(currentTheme === DARK ? LIGHT : DARK);
   };
 
-  return <button onClick={handleThemeSwitch}>Switch The Theme Less goo</button>;
+  return (
+    <label className="py-2 bg-indigo-400 px-3 relative h-8 w-16 cursor-pointer rounded-lg">
+      <input
+        onClick={handleThemeSwitch}
+        type="checkbox"
+        className="w-full h-full invisible peer"
+      />
+      <span className="h-full block absolute left-0 top-0 w-1/2 rounded-full bg-gray-400 peer-checked:bg-gray-800 peer-checked:left-10 transition-all"></span>
+    </label>
+  );
 };
 
 export { ThemeSwitchButton };

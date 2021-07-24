@@ -143,6 +143,7 @@ export const useHook = () => {
     setTerms,
     setExcludedTerms,
     setSelectedSites,
+    setIsExact,
     onSubmitClick,
     allSites,
     allFileExtensions,
@@ -150,6 +151,7 @@ export const useHook = () => {
     terms,
     excludedTerms,
     selectedSites,
+    isExact,
     // handleAddCustomFileFormat,
   };
 };
