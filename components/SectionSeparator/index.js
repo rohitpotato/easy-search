@@ -1,4 +1,6 @@
-export const SectionSeparator = ({ sectionHeading, RightComponent = null }) => {
+import { memo } from "react";
+
+function SectionSeparator({ sectionHeading, RightComponent = null }) {
   return (
     <div className="w-full space-y-2">
       <div className="flex items-center justify-between">
@@ -10,4 +12,7 @@ export const SectionSeparator = ({ sectionHeading, RightComponent = null }) => {
       <div className="w-full h-[1px] bg-black dark:bg-gray-200"></div>
     </div>
   );
-};
+}
+
+SectionSeparator = memo(SectionSeparator);
+export { SectionSeparator };

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import styles from "./Websites.module.css";
 
 export const Website = ({ site, selectedSites, setSelectedSites }) => {
   const { name, icon, url, isCustom } = site;
@@ -18,7 +17,6 @@ export const Website = ({ site, selectedSites, setSelectedSites }) => {
   const handleDeleteCustomSite = () => {
     // TODO
   };
-  console.log(icon);
   return (
     <button
       onClick={handleSelect}
@@ -26,10 +24,12 @@ export const Website = ({ site, selectedSites, setSelectedSites }) => {
         isSelected ? "bg-purple-300" : "bg-purple-100"
       }`}
     >
-      <div className={styles.iconContainer}>
+      <div>
         <Image src={icon} alt="site-icon" height={16} width={16} />
       </div>
-      <div className={styles.nameContainer}>{name}</div>
+      <div className="font-titilium font-semibold tracking-normal leading-8">
+        {name}
+      </div>
       {isCustom ? (
         <button
           onClick={handleDeleteCustomSite}

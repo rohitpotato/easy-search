@@ -1,10 +1,9 @@
-import Image from "next/image";
 import { ThemeSwitchButton } from "../ThemeSwitchButton/";
 
 export const Header = () => {
   return (
     <>
-      <nav className="fixed left-0">
+      <nav className="flex justify-end absolute right-0 p-2">
         <ThemeSwitchButton />
       </nav>
       <header className="">

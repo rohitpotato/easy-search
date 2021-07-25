@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import {
   allSites,
@@ -43,37 +43,21 @@ export const useHook = () => {
     {}
   );
 
-  const allSites = { ...supportedSites, ...customSites };
-  const allFileExtensions = {
-    ...supportedFileFormats,
-    ...customFileExtensions,
-  };
-  const allLastPublished = { ...datePublished, ...customLastPublished };
-
-  const handleTermChange = (event) => {
-    const { value } = event.target;
-    setTerms(value);
-  };
-
-  const handleExcludeTerm = (e) => {
-    const { value } = event.target;
-    setExcludedTerms(value);
-  };
-
-  const handleIsExact = () => {
-    const { checked } = event.target;
-    setIsExact(checked);
-  };
-
-  const handleFileFormat = (e) => {
-    const { value } = event.target;
-    setFileFormat(value);
-  };
-
-  const handlePublishSelect = (e) => {
-    const { value } = event.target;
-    setLastPublished(value);
-  };
+  const allSites = useMemo(
+    () => ({ ...supportedSites, ...customSites }),
+    [customSites]
+  );
+  const allFileExtensions = useMemo(
+    () => ({
+      ...supportedFileFormats,
+      ...customFileExtensions,
+    }),
+    [customFileExtensions]
+  );
+  const allLastPublished = useMemo(
+    () => ({ ...datePublished, ...customLastPublished }),
+    [customLastPublished]
+  );
 
   const getSitesURIComponent = () =>
     Object.values(selectedSites)
@@ -134,16 +118,12 @@ export const useHook = () => {
   // const handleAddCustomPublishMonth = () => {};
 
   return {
-    // handleTermChange,
-    // handleExcludeTerm,
-    // handleFileFormat,
-    // handleIsExact,
-    // handleSiteSelect,
-    // handlePublishSelect,
     setTerms,
     setExcludedTerms,
     setSelectedSites,
     setIsExact,
+    setFileFormat,
+    setLastPublished,
     onSubmitClick,
     allSites,
     allFileExtensions,
@@ -151,7 +131,8 @@ export const useHook = () => {
     terms,
     excludedTerms,
     selectedSites,
+    fileFormat,
     isExact,
-    // handleAddCustomFileFormat,
+    lastPublished,
   };
 };

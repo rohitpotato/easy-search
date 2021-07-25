@@ -1,17 +1,16 @@
+import { useTheme } from "../../Context/ThemeContext";
 import { THEMES } from "../../constants";
-import { useContext } from "react";
-import { ThemeContext } from "../../Context/ThemeContext";
 const { DARK, LIGHT } = THEMES;
 
 const ThemeSwitchButton = () => {
-  const { setCurrentTheme, currentTheme } = useContext(ThemeContext);
+  const { setCurrentTheme, currentTheme } = useTheme();
 
   const handleThemeSwitch = () => {
     setCurrentTheme(currentTheme === DARK ? LIGHT : DARK);
   };
 
   return (
-    <label className="py-2 bg-indigo-400 px-3 relative h-8 w-16 cursor-pointer rounded-lg">
+    <label className="py-2 bg-indigo-400 px-3 relative lg:h-8 h-6 w-16 cursor-pointer rounded-lg">
       <input
         onClick={handleThemeSwitch}
         type="checkbox"

@@ -64,8 +64,8 @@ export const MultiTextInput = ({
 
   return (
     <>
-      <div className="w-full rounded overflow-hidden" style={containerStyle}>
-        <div className="w-full flex gap-3 bg-gray-200 dark:bg-gray-300 py-3 border-2 border-purple-500 items-center relative">
+      <div className="w-full overflow-hidden" style={containerStyle}>
+        <div className="w-full rounded-md flex gap-3 bg-gray-200 dark:bg-gray-300 py-3 border-2 border-purple-500 items-center relative">
           {LeftComponent}
           <div style={inputContainerStyle} className=" px-4 w-full">
             <input

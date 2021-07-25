@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { THEMES } from "../constants";
 import { handleThemeSwitch } from "../utils";
@@ -8,7 +8,6 @@ const ThemeContext = React.createContext();
 
 const ThemeProvider = ({ children }) => {
   const [currentTheme, setCurrentTheme] = useLocalStorage("theme", LIGHT);
-
   useEffect(() => {
     handleThemeSwitch(currentTheme);
   }, [currentTheme]);
@@ -23,4 +22,14 @@ const ThemeProvider = ({ children }) => {
   );
 };
 
-export { ThemeContext, ThemeProvider };
+const useTheme = () => {
+  if (!ThemeContext) {
+    throw new Error(
+      "Children should be wrapped with ThemeProvider for useTheme to work"
+    );
+  }
+  const { currentTheme, setCurrentTheme } = useContext(ThemeContext);
+  return { currentTheme, setCurrentTheme };
+};
+
+export { ThemeContext, ThemeProvider, useTheme };

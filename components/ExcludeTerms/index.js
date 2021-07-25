@@ -1,7 +1,8 @@
+import { memo } from "react";
 import Image from "next/image";
 import { MultiTextInput } from "../MultiTextInput";
 
-export const ExcludedTerms = ({ setExcludedTerms, excludedTerms }) => {
+function ExcludedTerms({ setExcludedTerms, excludedTerms }) {
   const handlePressEnter = (excludedTerm) => {
     setExcludedTerms((s) => [...s, excludedTerm]);
   };
@@ -32,4 +33,7 @@ export const ExcludedTerms = ({ setExcludedTerms, excludedTerms }) => {
       placeholder="Enter the words you want to exclude"
     />
   );
-};
+}
+
+ExcludedTerms = memo(ExcludedTerms);
+export { ExcludedTerms };

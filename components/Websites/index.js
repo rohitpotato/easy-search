@@ -1,12 +1,12 @@
 import { Website } from "./Website";
-import styles from "./Websites.module.css";
 import { noop } from "../../utils";
+import { memo } from "react";
 
-export const WebsiteContainer = ({
+function WebsiteContainer({
   sites = {},
   selectedSites = {},
   setSelectedSites = noop,
-}) => {
+}) {
   return (
     <div className="flex gap-2 flex-wrap w-full">
       {Object.values(sites).map((site) => (
@@ -19,4 +19,7 @@ export const WebsiteContainer = ({
       ))}
     </div>
   );
-};
+}
+
+WebsiteContainer = memo(WebsiteContainer);
+export { WebsiteContainer };
