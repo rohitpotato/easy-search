@@ -1,7 +1,6 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import {
-  allSites,
   supportedFileFormats,
   datePublished,
   params,
@@ -9,6 +8,7 @@ import {
   localStorageKeys,
   supportedSites,
 } from "../constants";
+import { validateUrl } from "../utils";
 
 const {
   site,
@@ -21,9 +21,9 @@ const {
 } = params;
 
 const {
-  ES_Sites: sitesKey,
-  ES_LastPublishedList: lastPublishedListKey,
-  ES_FileExtensions: fileExtensionsKey,
+  sites: sitesKey,
+  lastPublishedList: lastPublishedListKey,
+  fileExtensions: fileExtensionsKey,
 } = localStorageKeys;
 
 export const useHook = () => {
@@ -42,6 +42,7 @@ export const useHook = () => {
     fileExtensionsKey,
     {}
   );
+  const [modalToRender, setModalToRender] = useState(null);
 
   const allSites = useMemo(
     () => ({ ...supportedSites, ...customSites }),
@@ -105,17 +106,92 @@ export const useHook = () => {
     console.log(String(final));
   };
 
-  // const handleAddCustomWebsite = () => {
-  //   const site = window.prompt("Enter a url");
-  //   set;
-  // };
+  const handleAddCustomWebsite = useCallback(
+    (name, url) => {
+      if (allSites[name]) {
+        throw new Error("The site already exists.");
+      }
 
-  const handleAddCustomFileFormat = () => {
-    const format = prompt("Enter file extension");
-    setCustomFileExtensions((s) => ({ ...s, [format]: format }));
-  };
+      if (!validateUrl(url)) {
+        throw new Error("Please enter a valid url");
+      }
 
-  // const handleAddCustomPublishMonth = () => {};
+      setCustomSites((s) => ({
+        ...s,
+        [name]: { name, url, isCustom: true, icon: "/icons/custom-url.svg" },
+      }));
+    },
+    [setCustomSites, allSites]
+  );
+
+  const handleRemoveCustomSite = useCallback(
+    (name) => {
+      const customSitesCopy = { ...customSites };
+      delete customSitesCopy[name];
+      setCustomSites(customSitesCopy);
+    },
+    [setCustomSites, customSites]
+  );
+
+  const handleAddCustomFileFormat = useCallback(
+    (format) => {
+      if (allFileExtensions[format]) {
+        throw new Error("The file extension already exists.");
+      }
+      setCustomFileExtensions((s) => ({
+        ...s,
+        [format]: {
+          format,
+          isCustom: true,
+        },
+      }));
+    },
+    [setCustomFileExtensions, allFileExtensions]
+  );
+
+  const handleRemoveCustomFileFormat = useCallback(
+    (format) => {
+      const customFileFormatsCopy = { ...customFileExtensions };
+      delete customFileFormatsCopy[format];
+      setCustomFileExtensions(customFileFormatsCopy);
+    },
+    [setCustomFileExtensions, customFileExtensions]
+  );
+
+  const handleAddCustomLastDate = useCallback(
+    (months) => {
+      if (allLastPublished[months]) {
+        throw new Error("The month already exists");
+      }
+
+      setCustomLastPublished((s) => ({
+        ...s,
+        [`${months}_months`]: {
+          last: `${months} months`,
+          isCustom: true,
+        },
+      }));
+    },
+    [setCustomLastPublished, allLastPublished]
+  );
+
+  const handleRemoveCustomDatePublished = useCallback(
+    (months) => {
+      const customLastPublishedCopy = { ...customLastPublished };
+      delete customLastPublishedCopy[months];
+      setCustomLastPublished(customLastPublishedCopy);
+    },
+    [customLastPublished, setCustomLastPublished]
+  );
+
+  console.log({
+    terms,
+    excludedTerms,
+    selectedSites,
+    fileFormat,
+    isExact,
+    lastPublished,
+  });
 
   return {
     setTerms,
@@ -124,8 +200,15 @@ export const useHook = () => {
     setIsExact,
     setFileFormat,
     setLastPublished,
+    setModalToRender,
     onSubmitClick,
     allSites,
+    handleAddCustomWebsite,
+    handleAddCustomFileFormat,
+    handleAddCustomLastDate,
+    handleRemoveCustomSite,
+    handleRemoveCustomFileFormat,
+    handleRemoveCustomDatePublished,
     allFileExtensions,
     allLastPublished,
     terms,
@@ -134,5 +217,6 @@ export const useHook = () => {
     fileFormat,
     isExact,
     lastPublished,
+    modalToRender,
   };
 };

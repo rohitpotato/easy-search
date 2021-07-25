@@ -1,7 +1,12 @@
 import Image from "next/image";
 
-export const Website = ({ site, selectedSites, setSelectedSites }) => {
-  const { name, icon, url, isCustom } = site;
+export const Website = ({
+  site,
+  selectedSites,
+  handleRemoveCustomSite,
+  setSelectedSites,
+}) => {
+  const { name, icon, isCustom } = site;
   const isSelected = Boolean(selectedSites[name]);
 
   const handleSelect = () => {
@@ -14,8 +19,9 @@ export const Website = ({ site, selectedSites, setSelectedSites }) => {
     }
   };
 
-  const handleDeleteCustomSite = () => {
-    // TODO
+  const handleDelete = (event) => {
+    event.stopPropagation();
+    handleRemoveCustomSite(name);
   };
   return (
     <button
@@ -32,8 +38,8 @@ export const Website = ({ site, selectedSites, setSelectedSites }) => {
       </div>
       {isCustom ? (
         <button
-          onClick={handleDeleteCustomSite}
-          className="absolute top-1 right-0"
+          onClick={handleDelete}
+          className="absolute text-lg top-1 right-2"
         >
           <span>&times;</span>
         </button>

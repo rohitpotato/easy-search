@@ -5,17 +5,24 @@ function DatePublishedContainer({
   allDatePublished,
   selectedDatePublished,
   setDatePublished,
+  handleRemoveCustomDatePublished,
 }) {
   return (
     <div className="flex gap-2 flex-wrap">
-      {Object.keys(allDatePublished).map((datePublished) => (
-        <DatePublished
-          key={datePublished}
-          title={datePublished}
-          isChecked={selectedDatePublished === datePublished}
-          setDatePublished={setDatePublished}
-        />
-      ))}
+      {Object.keys(allDatePublished).map((datePublished) => {
+        const { last, isCustom } = allDatePublished[datePublished];
+        return (
+          <DatePublished
+            key={datePublished}
+            title={datePublished}
+            value={last}
+            isCustom={isCustom}
+            isChecked={selectedDatePublished === last}
+            setDatePublished={setDatePublished}
+            handleRemoveCustomDatePublished={handleRemoveCustomDatePublished}
+          />
+        );
+      })}
     </div>
   );
 }

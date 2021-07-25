@@ -63,23 +63,65 @@ export const supportedSites = {
 };
 
 export const datePublished = {
-  any: "any",
-  past_24_hours: "d",
-  past_seven_days: "w",
-  past_six_months: "m6",
-  past_year: "y",
+  any: {
+    last: "any",
+    isCustom: false,
+  },
+  past_24_hours: {
+    last: "d",
+    isCustom: false,
+  },
+  past_seven_days: {
+    last: "w",
+    isCustom: false,
+  },
+  past_six_months: {
+    last: "m6",
+    isCustom: false,
+  },
+  past_year: {
+    last: "m12",
+    isCustom: false,
+  },
 };
 
 export const supportedFileFormats = {
-  any: "any",
-  pdf: "pdf",
-  xlsx: "xlsx",
-  docx: "docx",
-  pptx: "pptx",
-  mp3: "mp3",
-  mp4: "mp4",
-  mkv: "mkv",
-  zip: "zip",
+  any: {
+    format: "any",
+    isCustom: false,
+  },
+  pdf: {
+    format: "pdf",
+    isCustom: false,
+  },
+  xlsx: {
+    format: "xlsx",
+    isCustom: false,
+  },
+  docx: {
+    format: "docx",
+    isCustom: false,
+  },
+  pptx: {
+    format: "pptx",
+    isCustom: false,
+  },
+  mp3: {
+    format: "mp3",
+    isCustom: false,
+  },
+  mp4: {
+    format: "mp4",
+    isCustom: false,
+  },
+  mkv: {
+    format: "mkv",
+    isCustom: false,
+  },
+  zip: {
+    format: "zip",
+    isCustom: false,
+  },
 };
 
 export const params = {
@@ -95,7 +137,7 @@ export const params = {
 export const baseUrl = "https://google.com/search";
 
 export const localStorageKeys = {
-  ES_Sites: "sites",
-  ES_LastPublishedList: "lastPublishedList",
-  ES_FileExtensions: "fileExtensions",
+  sites: "ES_Sites",
+  lastPublishedList: "ES_LastPublishedList",
+  fileExtensions: "ES_FileExtensions",
 };
