@@ -11,11 +11,16 @@ export const useLocalStorage = (
   const [state, setState] = useState(() => {
     try {
       const valueInLocalStorage = lcStorage.getItem(key);
-      return deserialize(valueInLocalStorage);
+      const deserializedValue = deserialize(valueInLocalStorage);
+      if (!deserializedValue) {
+        return typeof defaultValue === "function"
+          ? defaultValue()
+          : defaultValue;
+      }
+      return deserializedValue;
     } catch (e) {
       lcStorage.removeItem(key);
     }
-    return typeof defaultValue === "function" ? defaultValue() : defaultValue;
   });
 
   const prevKeyRef = useRef(null);
