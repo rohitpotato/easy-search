@@ -12,6 +12,7 @@ import { Modal } from "../Modal";
 import { AddWebsiteModal } from "../Websites/AddWebsiteModal";
 import { AddFileTypeModal } from "../FileTypes/AddFileTypeModal";
 import { AddDatePublishedModal } from "../DatePublished/AddDatePublishedModal";
+import { Footer } from "../Footer";
 
 const Container = () => {
   const {
@@ -158,10 +159,13 @@ const Container = () => {
                 />
               </div>
             </div>
+            <div className="flex justify-center text-center my-12">
+              <Footer />
+            </div>
           </div>
         </div>
-        <Modal isVisible={Boolean(modalToRender)}>{modalToRender}</Modal>
       </div>
+      <Modal isVisible={Boolean(modalToRender)}>{modalToRender}</Modal>
     </>
   );
 };

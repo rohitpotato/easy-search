@@ -64,6 +64,14 @@ export const MultiTextInput = ({
     setIsKeyReleased(false);
   };
 
+  const handleOnBlur = () => {
+    const sanitizedInput = term.trim().toLowerCase();
+    if (sanitizedInput && tags.indexOf(sanitizedInput) === -1) {
+      onPressEnter(sanitizedInput);
+      setTerm("");
+    }
+  };
+
   return (
     <>
       <div className="w-full overflow-hidden" style={containerStyle}>
@@ -78,6 +86,7 @@ export const MultiTextInput = ({
               onChange={handleInputChange}
               onKeyUp={handleOnKeyUp}
               onKeyDown={handleOnKeyDown}
+              onBlur={handleOnBlur}
             />
           </div>
           {RightComponent}

@@ -18,7 +18,7 @@ export const AddDatePublishedModal = ({ onAdd = noop, onCancel = noop }) => {
 
   return (
     <div className="bg-white dark:bg-dark-mode-black font-titilium text-black dark:text-white px-8 py-4 md:w-96 w-80">
-      <div className="font-semibold leading-6 tracking-wide text-2xl flex justify-between items-center">
+      <div className="font-semibold leading-6 tracking-wide text-2xl flex justify-between items-center -mx-4">
         <div>
           Add Custom Last Date
           <span className="block text-sm mt-2 italic font-normal">
@@ -31,14 +31,15 @@ export const AddDatePublishedModal = ({ onAdd = noop, onCancel = noop }) => {
       <div className="space-y-4">
         <div className="lg:w-80 w-74">
           <label
-            htmlFor="name"
+            htmlFor="months"
             className="font-titilium font-semibold text-base"
           >
             Last Published (in months)
           </label>
           <input
             className="py-4 block px-2 rounded-md placeholder-gray-400 font-titilium mt-2 border-2 w-full text-black"
-            name="name"
+            name="months"
+            type="number"
             placeholder="Enter Months"
             onChange={(event) => setMonths(event.target.value)}
           />

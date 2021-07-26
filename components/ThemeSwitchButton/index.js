@@ -14,6 +14,7 @@ const ThemeSwitchButton = () => {
       <input
         onClick={handleThemeSwitch}
         type="checkbox"
+        defaultChecked={currentTheme === DARK}
         className="w-full h-full invisible peer"
       />
       <span className="h-full block absolute left-0 top-0 w-1/2 rounded-full bg-gray-400 peer-checked:bg-gray-800 peer-checked:left-10 transition-all"></span>

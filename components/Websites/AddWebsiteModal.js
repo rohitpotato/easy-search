@@ -19,7 +19,7 @@ export const AddWebsiteModal = ({ onAdd = noop, onCancel = noop }) => {
 
   return (
     <div className="bg-white dark:bg-dark-mode-black font-titilium text-black dark:text-white px-8 py-4 md:w-96 w-80">
-      <div className="font-semibold leading-6 tracking-wide text-2xl flex justify-between items-center">
+      <div className="font-semibold leading-6 tracking-wide text-2xl flex justify-between items-center -mx-4">
         <div>
           Add Custom URL
           <span className="block text-sm mt-2 italic font-normal">

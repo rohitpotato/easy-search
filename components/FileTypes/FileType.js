@@ -10,7 +10,8 @@ export const FileType = ({
     setFileType(value);
   };
 
-  const handleRemove = () => {
+  const handleRemove = (event) => {
+    event.stopPropagation();
     handleRemoveCustomFileFormat(value);
   };
 
@@ -23,7 +24,7 @@ export const FileType = ({
     >
       {type}
       {isCustom && (
-        <span onClick={handleRemove} className="text-lg cursor-pointer">
+        <span onClick={handleRemove} className="text-lg cursor-pointer p-1">
           &times;
         </span>
       )}

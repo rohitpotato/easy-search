@@ -17,12 +17,12 @@ export const supportedSites = {
     icon: "/icons/reddit.png",
   },
   // productHunt: "producthunt.com",
-  // github: {
-  //   url: "github.com",
-  //   name: "Github",
-  //   isCustom: false,
-  //   icon: "/icons/github.png",
-  // },
+  github: {
+    url: "github.com",
+    name: "Github",
+    isCustom: false,
+    icon: "/icons/github.png",
+  },
   dribbble: {
     url: "dribbble.com",
     name: "Dribbble",

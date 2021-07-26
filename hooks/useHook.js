@@ -60,12 +60,10 @@ export const useHook = () => {
     [customLastPublished]
   );
 
-  const getSitesURIComponent = () => {
-    console.log(Object.values(selectedSites));
-    return Object.values(selectedSites)
+  const getSitesURIComponent = () =>
+    Object.values(selectedSites)
       .map(({ url }) => encodeURIComponent(`${site}${url}`))
       .join(`${siteJoinChar}`);
-  };
 
   const formatSearchTerm = () => {
     let res = "";
@@ -77,7 +75,7 @@ export const useHook = () => {
 
   const formatExcludeTerm = () =>
     `${exclude}${excludedTerms
-      .map((excludedTerm) => excludedTerm)
+      .map((excludedTerm) => excludedTerm.replace("-", ""))
       .join(exclude)}`;
 
   const getTerms = () => {
@@ -105,7 +103,7 @@ export const useHook = () => {
       final += `${`${datePublishedParam}:${lastPublished}`}`;
     }
 
-    console.log(String(final));
+    window.open(String(final), "_blank");
   };
 
   const handleAddCustomWebsite = useCallback(
@@ -160,7 +158,6 @@ export const useHook = () => {
     (format) => {
       const customFileFormatsCopy = { ...customFileExtensions };
       delete customFileFormatsCopy[format];
-      console.log(fileFormat, format);
       if (fileFormat === format) {
         setFileFormat("");
       }
@@ -178,7 +175,7 @@ export const useHook = () => {
       setCustomLastPublished((s) => ({
         ...s,
         [`${months}_months`]: {
-          last: `${months} months`,
+          last: `${months}m`,
           isCustom: true,
         },
       }));
@@ -197,15 +194,6 @@ export const useHook = () => {
     },
     [customLastPublished, setCustomLastPublished, lastPublished]
   );
-
-  console.log({
-    terms,
-    excludedTerms,
-    selectedSites,
-    fileFormat,
-    isExact,
-    lastPublished,
-  });
 
   return {
     setTerms,

@@ -2,12 +2,12 @@ import React, { useContext, useEffect } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { THEMES } from "../constants";
 import { handleThemeSwitch } from "../utils";
-const { LIGHT } = THEMES;
+const { DARK } = THEMES;
 
 const ThemeContext = React.createContext();
 
 const ThemeProvider = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = useLocalStorage("theme", LIGHT);
+  const [currentTheme, setCurrentTheme] = useLocalStorage("theme", DARK);
   useEffect(() => {
     handleThemeSwitch(currentTheme);
   }, [currentTheme]);
