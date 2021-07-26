@@ -60,23 +60,25 @@ export const useHook = () => {
     [customLastPublished]
   );
 
-  const getSitesURIComponent = () =>
-    Object.values(selectedSites)
-      .map(({ url }) => encodeURIComponent(`${site}${{ url }}`))
+  const getSitesURIComponent = () => {
+    console.log(Object.values(selectedSites));
+    return Object.values(selectedSites)
+      .map(({ url }) => encodeURIComponent(`${site}${url}`))
       .join(`${siteJoinChar}`);
+  };
 
   const formatSearchTerm = () => {
     let res = "";
-    terms.forEach((term) => {
-      res += isExact
-        ? `"${term.split(" ").join(queryJoiner)}"`
-        : term.split(" ").join(queryJoiner);
-    });
-    return res;
+    res = terms
+      .map((term) => term.split(" ").join(queryJoiner))
+      .join(queryJoiner);
+    return isExact ? `"${res}"` : res;
   };
 
   const formatExcludeTerm = () =>
-    `${exclude}${excludedTerms.split(" ").join(exclude)}`;
+    `${exclude}${excludedTerms
+      .map((excludedTerm) => excludedTerm)
+      .join(exclude)}`;
 
   const getTerms = () => {
     let toSearch = formatSearchTerm();
@@ -94,13 +96,13 @@ export const useHook = () => {
     if (sites) {
       final += `${queryJoiner}${sites}`;
     }
-    if (fileFormat && fileFormat !== allFileExtensions.any) {
+    if (fileFormat && fileFormat !== allFileExtensions.any.format) {
       final += `${queryJoiner}${encodeURIComponent(
         `${fileType}${fileFormat}`
       )}`;
     }
-    if (lastPublished && lastPublished !== allLastPublished.any) {
-      final += `${`${datePublishedParam}:${allLastPublished[lastPublished]}`}`;
+    if (lastPublished && lastPublished !== allLastPublished.any.last) {
+      final += `${`${datePublishedParam}:${lastPublished}`}`;
     }
 
     console.log(String(final));
@@ -128,9 +130,14 @@ export const useHook = () => {
     (name) => {
       const customSitesCopy = { ...customSites };
       delete customSitesCopy[name];
+      if (selectedSites[name]) {
+        const selectedSitesCopy = { ...selectedSites };
+        delete selectedSitesCopy[name];
+        setSelectedSites(selectedSitesCopy);
+      }
       setCustomSites(customSitesCopy);
     },
-    [setCustomSites, customSites]
+    [setCustomSites, customSites, selectedSites]
   );
 
   const handleAddCustomFileFormat = useCallback(
@@ -153,9 +160,13 @@ export const useHook = () => {
     (format) => {
       const customFileFormatsCopy = { ...customFileExtensions };
       delete customFileFormatsCopy[format];
+      console.log(fileFormat, format);
+      if (fileFormat === format) {
+        setFileFormat("");
+      }
       setCustomFileExtensions(customFileFormatsCopy);
     },
-    [setCustomFileExtensions, customFileExtensions]
+    [setCustomFileExtensions, customFileExtensions, fileFormat]
   );
 
   const handleAddCustomLastDate = useCallback(
@@ -179,9 +190,12 @@ export const useHook = () => {
     (months) => {
       const customLastPublishedCopy = { ...customLastPublished };
       delete customLastPublishedCopy[months];
+      if (months === lastPublished) {
+        setLastPublished("");
+      }
       setCustomLastPublished(customLastPublishedCopy);
     },
-    [customLastPublished, setCustomLastPublished]
+    [customLastPublished, setCustomLastPublished, lastPublished]
   );
 
   console.log({

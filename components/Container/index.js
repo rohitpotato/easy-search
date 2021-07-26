@@ -1,4 +1,4 @@
-import React from "react";
+import Image from "next/image";
 import { SearchInput } from "../SearchInput";
 import { Header } from "../Header";
 import { useHook } from "../../hooks/useHook";
@@ -51,17 +51,32 @@ const Container = () => {
 
   return (
     <>
-      <div className="dark:bg-black mx-auto lg:w-3/4 py-8 w-4/5 bg-gray-200 min-h-screen transition-colors">
+      <div className="dark:bg-black mx-auto lg:w-3/4 pb-16 pt-8 md:w-4/5 w-11/12 bg-gray-300 min-h-screen transition-colors">
         <Header />
         <div className="w-full">
-          <SearchInput
-            setTerms={setTerms}
-            searchTerms={searchTerms}
-            setIsExact={setIsExact}
-            isExact={isExact}
-          />
+          <div className="inline-flex w-full md:gap-4">
+            <SearchInput
+              setTerms={setTerms}
+              searchTerms={searchTerms}
+              setIsExact={setIsExact}
+              isExact={isExact}
+            />
+            <div className="">
+              <button
+                onClick={onSubmitClick}
+                className="bg-gray-700 flex items-center justify-center z-50 rounded m-0 md:px-4 md:py-4 md:static fixed bottom-0 w-full md:w-auto left-0 p-3"
+              >
+                <Image
+                  src="/icons/search.svg"
+                  alt="search_icon"
+                  height={24}
+                  width={24}
+                />
+              </button>
+            </div>
+          </div>
           <div className="mt-12">
-            <div className="flex gap-16 lg:flex-row flex-col shadow-md p-4">
+            <div className="flex gap-16 lg:flex-row flex-col lg:p-4 p-2">
               <div className="space-y-4 flex-1">
                 <SectionSeparator sectionHeading="Exclude Keywords" />
                 <ExcludedTerms
@@ -93,7 +108,7 @@ const Container = () => {
                 />
               </div>
             </div>
-            <div className="flex gap-16 lg:flex-row flex-col mt-12 shadow-md p-8">
+            <div className="flex gap-16 lg:flex-row flex-col mt-12 lg:p-8 p-4">
               <div className="space-y-4 flex-1">
                 <SectionSeparator
                   sectionHeading="Select File type"

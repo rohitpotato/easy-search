@@ -6,7 +6,11 @@ module.exports = {
     fontFamily: {
       titilium: ["Titillium Web", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      colors: {
+        "dark-mode-black": "#121212",
+      },
+    },
   },
   variants: {
     extend: {

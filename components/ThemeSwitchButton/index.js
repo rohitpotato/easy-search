@@ -10,7 +10,7 @@ const ThemeSwitchButton = () => {
   };
 
   return (
-    <label className="py-2 bg-indigo-400 px-3 relative lg:h-8 h-6 w-16 cursor-pointer rounded-lg">
+    <label className="py-2 bg-gray-700 px-3 relative h-8 w-16 cursor-pointer rounded-full">
       <input
         onClick={handleThemeSwitch}
         type="checkbox"

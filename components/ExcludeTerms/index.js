@@ -30,6 +30,7 @@ function ExcludedTerms({ setExcludedTerms, excludedTerms }) {
       onBackSpace={handleBackSpace}
       onRemove={handleRemove}
       tags={excludedTerms}
+      delimiters={[",", "Enter", "Space"]}
       placeholder="Enter the words you want to exclude"
     />
   );

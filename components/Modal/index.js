@@ -5,7 +5,7 @@ const Modal = ({ children, isVisible, overlayRef, ...rest }) => {
     <Portal selector="modal-root">
       <div
         className="fixed inset-0 h-screen w-screen backdrop-blur flex items-center justify-center"
-        // ref={overlayRef}
+        ref={overlayRef}
         {...rest}
       >
         {children}

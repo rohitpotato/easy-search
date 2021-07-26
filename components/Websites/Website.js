@@ -26,14 +26,23 @@ export const Website = ({
   return (
     <button
       onClick={handleSelect}
-      className={`p-4 w-32 relative shadow hover:shadow-md ${
-        isSelected ? "bg-purple-300" : "bg-purple-100"
+      className={`p-4 w-32 relative rounded-md shadow hover:shadow-md ${
+        isSelected ? "bg-gray-700" : "bg-gray-200"
       }`}
     >
       <div>
-        <Image src={icon} alt="site-icon" height={16} width={16} />
+        <Image
+          src={isCustom ? "/icons/link-icon.svg" : `${icon}`}
+          alt="site-icon"
+          height={16}
+          width={16}
+        />
       </div>
-      <div className="font-titilium font-semibold tracking-normal leading-8">
+      <div
+        className={`font-titilium font-semibold tracking-normal leading-8 ${
+          isSelected ? "text-white" : "text-black"
+        }`}
+      >
         {name}
       </div>
       {isCustom ? (

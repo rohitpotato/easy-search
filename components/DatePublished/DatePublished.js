@@ -12,7 +12,6 @@ export const DatePublished = ({
   };
 
   const handleRemove = (event) => {
-    console.log(event);
     event.stopPropagation();
     handleRemoveCustomDatePublished(title);
   };
@@ -21,9 +20,9 @@ export const DatePublished = ({
     <>
       <button
         onClick={handleDatePublished}
-        className={`px-2 py-2 flex gap-2 items-center rounded font-titilium font-semibold tracking-wide leading-7 ${
-          isChecked ? "bg-purple-400" : "bg-purple-200"
-        } text-purple-500`}
+        className={`px-2 py-2 flex gap-2 items-center rounded font-titilium font-semibold tracking-wide leading-7 shadow-md ${
+          isChecked ? "bg-gray-700 text-white" : "bg-gray-200 text-black"
+        } `}
       >
         {toTitleCase(title)}
         {isCustom && (

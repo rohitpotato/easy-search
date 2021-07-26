@@ -15,9 +15,8 @@ export const AddFileTypeModal = ({ onAdd = noop, onCancel = noop }) => {
       }
     }
   };
-  console.log(error);
   return (
-    <div className="bg-white dark:bg-black font-titilium text-black dark:text-white px-8 py-4 md:w-96 w-80">
+    <div className="bg-white dark:bg-dark-mode-black font-titilium text-black dark:text-white px-8 py-4 md:w-96 w-80">
       <div className="font-semibold leading-6 tracking-wide text-2xl flex justify-between items-center">
         <div>
           Add Custom File Extension

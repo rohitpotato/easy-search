@@ -4,6 +4,7 @@ export const MultiTextInput = ({
   tags = [],
   inputValue = "",
   containerStyle = {},
+  tagsContainerStyle = {},
   tagContainerStyle = {},
   tagStyle = {},
   inputContainerStyle = {},
@@ -14,6 +15,7 @@ export const MultiTextInput = ({
   onPressEnter,
   onBackSpace,
   onRemove,
+  delimiters = ["Enter", ","],
 }) => {
   const [term, setTerm] = useState("");
   const [isKeyReleased, setIsKeyReleased] = useState(true);
@@ -34,15 +36,15 @@ export const MultiTextInput = ({
     setTerm(event.target.value);
   };
 
-  const handleOnKeyUp = (event) => {
+  const handleOnKeyUp = () => {
     setIsKeyReleased(true);
   };
 
   const handleOnKeyDown = (event) => {
-    const { key } = event;
+    const { key, code } = event;
     const sanitizedInput = term.trim().toLowerCase();
     if (
-      (key === "," || key === "Enter") &&
+      (delimiters.indexOf(key) > -1 || delimiters.indexOf(code) > -1) &&
       sanitizedInput &&
       tags.indexOf(sanitizedInput) === -1 &&
       isKeyReleased
@@ -65,11 +67,11 @@ export const MultiTextInput = ({
   return (
     <>
       <div className="w-full overflow-hidden" style={containerStyle}>
-        <div className="w-full rounded-md flex gap-3 bg-gray-200 dark:bg-gray-300 py-3 border-2 border-purple-500 items-center relative">
+        <div className="w-full rounded-md flex gap-3 bg-gray-200 dark:bg-dark-mode-black py-3 border-[1] shadow items-center relative">
           {LeftComponent}
           <div style={inputContainerStyle} className=" px-4 w-full">
             <input
-              className="outline-none w-full bg-gray-200 dark:bg-gray-300"
+              className="outline-none w-full bg-gray-200 dark:bg-dark-mode-black text-black font-titilium tracking-wider dark:text-white"
               style={inputStyle}
               value={term}
               placeholder={placeholder}
@@ -80,10 +82,10 @@ export const MultiTextInput = ({
           </div>
           {RightComponent}
         </div>
-        <div style={tagContainerStyle} className="flex gap-2 mt-3 flex-wrap">
+        <div style={tagsContainerStyle} className="flex gap-2 mt-3 flex-wrap">
           {tags.map((tag, index) => (
             <div
-              className="py-1 px-2 flex gap-3 rounded bg-purple-300 text-purple-500"
+              className="py-1 px-2 flex gap-3 rounded bg-gray-700 text-white dark:text-white dark:bg-gray-700 font-titilium font-semibold"
               style={tagContainerStyle}
               key={tag}
             >
