@@ -13,6 +13,7 @@ import { AddWebsiteModal } from "../Websites/AddWebsiteModal";
 import { AddFileTypeModal } from "../FileTypes/AddFileTypeModal";
 import { AddDatePublishedModal } from "../DatePublished/AddDatePublishedModal";
 import { Footer } from "../Footer";
+import { useCallback, useEffect } from "react";
 
 const Container = () => {
   const {
@@ -46,9 +47,9 @@ const Container = () => {
     setModalToRender(component);
   };
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setModalToRender(null);
-  };
+  }, [setModalToRender]);
 
   return (
     <>
@@ -165,7 +166,13 @@ const Container = () => {
           </div>
         </div>
       </div>
-      <Modal isVisible={Boolean(modalToRender)}>{modalToRender}</Modal>
+      <Modal
+        shouldCloseOnEsc
+        onClose={closeModal}
+        isVisible={Boolean(modalToRender)}
+      >
+        {modalToRender}
+      </Modal>
     </>
   );
 };

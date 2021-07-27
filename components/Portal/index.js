@@ -14,6 +14,13 @@ const getPortlaNode = (selector) => {
   return portal;
 };
 
+const removePortal = (selector) => {
+  const portal = document.getElementById(selector);
+  if (document.body.contains(portal)) {
+    document.body.removeChild(portal);
+  }
+};
+
 const Portal = ({ children, selector }) => {
   const el = useRef(null);
   const [mounted, setMounted] = useState(false);
@@ -25,6 +32,7 @@ const Portal = ({ children, selector }) => {
     return () => {
       const portalNode = getPortlaNode(selector);
       portalNode.removeChild(el.current);
+      removePortal(selector);
     };
   }, [selector]);
 
