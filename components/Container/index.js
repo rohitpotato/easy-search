@@ -15,6 +15,8 @@ import { AddFileTypeModal } from "../FileTypes/AddFileTypeModal";
 import { AddDatePublishedModal } from "../DatePublished/AddDatePublishedModal";
 import { Footer } from "../Footer";
 import { Button } from "../Button";
+import { MobileActionPanel } from "../ActionPanel/MobileActionPanel";
+import { DesktopActionPanel } from "../ActionPanel/DesktopActionPanel";
 
 const Container = () => {
   const {
@@ -64,28 +66,14 @@ const Container = () => {
               setIsExact={setIsExact}
               isExact={isExact}
             />
-            <div className="md:block hidden">
-              <Button
-                onClick={onSubmitClick}
-                disabled={!searchTerms.length}
-                className="py-[1.35rem] "
-                type="primary"
-              >
-                Search
-              </Button>
-            </div>
-            <div className="md:hidden">
-              <div className="dark:bg-dark-text-gray bg-white border-t-[1px] leading-8 border-gray-500 gap-4 font-semibold flex justify-end z-50 md:rounded shadow-xl m-0 md:px-4 md:py-4 md:static fixed bottom-0 w-full md:w-auto left-0 p-3">
-                <Button type="secondary">View Query</Button>
-                <Button
-                  onClick={onSubmitClick}
-                  disabled={searchTerms.length === 0}
-                  type="primary"
-                >
-                  Search
-                </Button>
-              </div>
-            </div>
+            <MobileActionPanel
+              onSubmitClick={onSubmitClick}
+              searchTerms={searchTerms}
+            />
+            <DesktopActionPanel
+              nSubmitClick={onSubmitClick}
+              searchTerms={searchTerms}
+            />
           </div>
           {/*  */}
           <div className="mt-12">

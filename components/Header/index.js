@@ -12,7 +12,7 @@ export const Header = () => {
         </div>
       </div>
       <div className="mt-20 mx-auto md:w-4/5 w-full">
-        <div className="md:w-3/4 lg:w-3/6 w-full font-rubik lg:text-4xl md:text-3xl text-2xl font-medium">
+        <div className="md:w-3/4 lg:w-3/6 w-full font-rubik lg:text-4xl text-3xl font-medium">
           Get specific results from Google by limiting sites, files, dates and
           more.
         </div>

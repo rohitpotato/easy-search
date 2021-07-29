@@ -10,11 +10,9 @@ export const Button = ({ children, className, type, ...rest }) => {
     secondary:
       "shadow-sm transparent border border-1 border-gray-500 text-dark-text-gray dark:text-light-text-purple",
   };
+  const defaultClass = `px-5 py-1 rounded-md font-rubik tracking-wider font-medium`;
   return (
-    <button
-      className={`px-5 py-1 rounded-md font-rubik tracking-wider font-medium ${types[type]} ${className}`}
-      {...rest}
-    >
+    <button className={`${defaultClass} ${types[type]} ${className}`} {...rest}>
       {children}
     </button>
   );
