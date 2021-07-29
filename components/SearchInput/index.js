@@ -21,42 +21,39 @@ export const SearchInput = ({ setTerms, searchTerms, setIsExact, isExact }) => {
   };
 
   return (
-    <MultiTextInput
-      placeholder="Enter your query. Press Enter for multiple queries"
-      LeftComponent={
-        <div className="ml-4 stroke-current">
-          <Image
-            src="/icons/search.svg"
-            alt="search-icon"
-            width={24}
-            height={24}
-          />
-        </div>
-      }
-      RightComponent={
-        <button
-          className={`${
-            !isExact ? "bg-gray-400" : "bg-gray-700 dark:bg-gray-700"
-          } transition-colors absolute rounded right-0 top-0 h-full p-2 `}
-          onClick={handleIsExact}
-        >
-          <span className="flex-shrink-0 text-white font-titilium tracking-wider leading-8 font-semibold hidden lg:block">
-            Exact
-          </span>
-          <span className="lg:hidden block">
+    <div className="flex flex-col w-full">
+      <MultiTextInput
+        placeholder="Enter your search query"
+        LeftComponent={
+          <div className="ml-4 stroke-current">
             <Image
-              src="/icons/tick.svg"
-              alt="tick_icon"
-              height={20}
-              width={20}
+              src="/icons/search.svg"
+              alt="search-icon"
+              width={24}
+              height={24}
             />
-          </span>
-        </button>
-      }
-      tags={searchTerms}
-      onPressEnter={handlePressEnter}
-      onRemove={handleRemove}
-      onBackSpace={handleBackSpace}
-    />
+          </div>
+        }
+        tags={searchTerms}
+        onPressEnter={handlePressEnter}
+        onRemove={handleRemove}
+        onBackSpace={handleBackSpace}
+      />
+      <div className="flex items-center mt-2 gap-3 w-full">
+        <label
+          htmlFor="is_exact"
+          className="font-rubik font-medium text-dark-text-gray dark:text-white dark:opacity80"
+        >
+          Is exact
+        </label>
+        <input
+          type="checkbox"
+          name="is_exact"
+          id="is_exact"
+          onChange={handleIsExact}
+          checked={isExact}
+        />
+      </div>
+    </div>
   );
 };

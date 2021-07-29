@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { noop } from "../../utils";
+import { Button } from "../Button";
 
 export const AddDatePublishedModal = ({ onAdd = noop, onCancel = noop }) => {
   const [months, setMonths] = useState("");
@@ -17,7 +18,7 @@ export const AddDatePublishedModal = ({ onAdd = noop, onCancel = noop }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-dark-mode-black font-titilium text-black dark:text-white px-8 py-4 md:w-96 w-80">
+    <div className="bg-light-gray shadow-lg border-1 border-light-gray dark:bg-dark-mode-black font-rubik text-dark-text-gray dark:text-white dark:text-opacity-80 px-8 py-4 md:w-96 w-80">
       <div className="font-semibold leading-6 tracking-wide text-2xl flex justify-between items-center -mx-4">
         <div>
           Add Custom Last Date
@@ -32,13 +33,13 @@ export const AddDatePublishedModal = ({ onAdd = noop, onCancel = noop }) => {
         <div className="lg:w-80 w-74">
           <label
             htmlFor="months"
-            className="font-titilium font-semibold text-base"
+            className="font-rubik font-semibold text-base"
           >
             Last Published (in months)
           </label>
           <input
-            className="py-4 block px-2 rounded-md placeholder-gray-400 font-titilium mt-2 border-2 w-full text-black"
-            name="months"
+            className="py-4 block px-2 bg-transparent rounded-md font-rubik mt-2 border border-opacity-30 border-1 border-gray-500 w-full tracking-wide text-dark-text-gray placeholder-dark-text-gray dark:placeholder-opacity-30 placeholder-opacity-60 dark:placeholder-white  dark:text-white dark:opacity-80"
+            id="months"
             type="number"
             placeholder="Enter Months"
             onChange={(event) => setMonths(event.target.value)}
@@ -49,12 +50,9 @@ export const AddDatePublishedModal = ({ onAdd = noop, onCancel = noop }) => {
         {error}
       </div>
       <div className="flex items-center justify-center my-8">
-        <button
-          onClick={handleAdd}
-          className="bg-black dark:bg-white text-white dark:text-black font-titilium font-semibold px-4 py-2 rounded-md"
-        >
+        <Button type="primary" onClick={handleAdd} className=" py-2">
           Add
-        </button>
+        </Button>
       </div>
     </div>
   );

@@ -75,11 +75,11 @@ export const MultiTextInput = ({
   return (
     <>
       <div className="w-full overflow-hidden" style={containerStyle}>
-        <div className="w-full rounded-md flex gap-3 bg-gray-200 dark:bg-dark-mode-black py-3 border-[1] shadow items-center relative">
+        <div className="w-full rounded-md flex gap-1  dark:bg-dark-mode-black py-5 items-center relative shadow-md transparent border border-1 border-gray-500 text-dark-text-gray">
           {LeftComponent}
           <div style={inputContainerStyle} className=" px-4 w-full">
             <input
-              className="outline-none w-full bg-gray-200 dark:bg-dark-mode-black text-black font-titilium tracking-wider dark:text-white"
+              className="outline-none w-full bg-transparent font-rubik tracking-wider text-dark-text-gray placeholder-dark-text-gray dark:placeholder-white dark:placeholder-opacity-30 dark:text-white"
               style={inputStyle}
               value={term}
               placeholder={placeholder}
@@ -94,7 +94,7 @@ export const MultiTextInput = ({
         <div style={tagsContainerStyle} className="flex gap-2 mt-3 flex-wrap">
           {tags.map((tag, index) => (
             <div
-              className="py-1 px-2 flex gap-3 rounded bg-gray-700 text-white dark:text-white dark:bg-gray-700 font-titilium font-semibold"
+              className="py-1 px-2 flex gap-3 font-rubik rounded bg-light-text-purple text-purple-700 font-medium"
               style={tagContainerStyle}
               key={tag}
             >

@@ -19,7 +19,7 @@ export default function Home() {
         <meta name="author" content="Rohit Kashyap" />
       </Head>
       <ThemeProvider>
-        <div className="bg-gray-300 dark:bg-black">
+        <div className="bg-light-gray transition-colors dark:bg-black">
           <Container />
         </div>
       </ThemeProvider>

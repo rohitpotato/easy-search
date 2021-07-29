@@ -10,14 +10,14 @@ const ThemeSwitchButton = () => {
   };
 
   return (
-    <label className="py-2 bg-gray-700 px-3 relative h-8 w-16 cursor-pointer rounded-full">
+    <label className="relative block h-6 w-16 cursor-pointer rounded shadow-sm transparent border border-1 border-gray-300 text-gray-600">
       <input
         onClick={handleThemeSwitch}
         type="checkbox"
         defaultChecked={currentTheme === DARK}
         className="w-full h-full invisible peer"
       />
-      <span className="h-full block absolute left-0 top-0 w-1/2 rounded-full bg-gray-400 peer-checked:bg-gray-800 peer-checked:left-10 transition-all"></span>
+      <span className="h-full block absolute left-0 top-0 w-1/2 rounded bg-gray-400 peer-checked:bg-dark-text-gray peer-checked:left-8 transition-all"></span>
     </label>
   );
 };

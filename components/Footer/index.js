@@ -1,19 +1,19 @@
 export const Footer = () => {
   return (
-    <div className="text-black dark:text-white font-titilium tracking-widest leading-6 font-semibold">
+    <div className="text-black dark:text-white opacity-80 font-rubik tracking-widest leading-6 font-semibold">
       Made with love by{" "}
       <a
         target="_blank"
         rel="noreferrer"
         href="https://www.notion.so/Rohit-Kashyap-cc84da73c0534f249ce3757956f5851b"
       >
-        <b className="text-red-500">Rohit Kashyap</b>
+        <b className=" text-purple-700">Rohit Kashyap</b>
       </a>
       -- View code on{" "}
       <a
         target="_blank"
         rel="noreferrer"
-        className="text-red-500"
+        className=" text-purple-700"
         href="https://github.com/rohitpotato/easy-search"
       >
         <b>Github</b>
