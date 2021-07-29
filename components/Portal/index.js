@@ -25,13 +25,9 @@ const Portal = ({ children, selector }) => {
   const el = useRef(null);
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    el.current = document.createElement("div");
-    const portalNode = getPortlaNode(selector);
-    portalNode.appendChild(el.current);
+    el.current = getPortlaNode(selector);
     setMounted(true);
     return () => {
-      const portalNode = getPortlaNode(selector);
-      portalNode.removeChild(el.current);
       removePortal(selector);
     };
   }, [selector]);

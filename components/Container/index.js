@@ -1,7 +1,8 @@
+import { useCallback } from "react";
 import Image from "next/image";
+import { useHook } from "../../hooks/useHook";
 import { SearchInput } from "../SearchInput";
 import { Header } from "../Header";
-import { useHook } from "../../hooks/useHook";
 import { SectionSeparator } from "../SectionSeparator";
 import { ExcludedTerms } from "../ExcludeTerms";
 import { WebsiteContainer } from "../Websites";
@@ -13,7 +14,6 @@ import { AddWebsiteModal } from "../Websites/AddWebsiteModal";
 import { AddFileTypeModal } from "../FileTypes/AddFileTypeModal";
 import { AddDatePublishedModal } from "../DatePublished/AddDatePublishedModal";
 import { Footer } from "../Footer";
-import { useCallback, useEffect } from "react";
 
 const Container = () => {
   const {
@@ -168,6 +168,7 @@ const Container = () => {
       </div>
       <Modal
         shouldCloseOnEsc
+        closeOnOverlayPress
         onClose={closeModal}
         isVisible={Boolean(modalToRender)}
       >
