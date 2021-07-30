@@ -1,5 +1,4 @@
 import { useCallback } from "react";
-import Image from "next/image";
 import { useHook } from "../../hooks/useHook";
 import { SearchInput } from "../SearchInput";
 import { Header } from "../Header";
@@ -14,9 +13,9 @@ import { AddWebsiteModal } from "../Websites/AddWebsiteModal";
 import { AddFileTypeModal } from "../FileTypes/AddFileTypeModal";
 import { AddDatePublishedModal } from "../DatePublished/AddDatePublishedModal";
 import { Footer } from "../Footer";
-import { Button } from "../Button";
 import { MobileActionPanel } from "../ActionPanel/MobileActionPanel";
 import { DesktopActionPanel } from "../ActionPanel/DesktopActionPanel";
+import { DesktopViewQuery } from "../ViewQuery/DesktopViewQuery";
 
 const Container = () => {
   const {
@@ -69,10 +68,22 @@ const Container = () => {
             <MobileActionPanel
               onSubmitClick={onSubmitClick}
               searchTerms={searchTerms}
+              onViewQueryClick={() => {
+                const url = onSubmitClick(false);
+                openModal(
+                  <DesktopViewQuery query={url} onCancel={closeModal} />
+                );
+              }}
             />
             <DesktopActionPanel
-              nSubmitClick={onSubmitClick}
+              onSubmitClick={onSubmitClick}
               searchTerms={searchTerms}
+              onViewQueryClick={() => {
+                const url = onSubmitClick(false);
+                openModal(
+                  <DesktopViewQuery query={url} onCancel={closeModal} />
+                );
+              }}
             />
           </div>
           {/*  */}
