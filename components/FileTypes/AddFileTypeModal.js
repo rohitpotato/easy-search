@@ -17,15 +17,17 @@ export const AddFileTypeModal = ({ onAdd = noop, onCancel = noop }) => {
     }
   };
   return (
-    <div className="bg-light-gray shadow-lg border-1 border-light-gray dark:bg-dark-mode-black font-rubik text-dark-text-gray dark:text-white dark:text-opacity-80 px-8 py-4 md:w-96 w-80">
-      <div className="font-medium leading-6 tracking-wide text-2xl flex justify-between items-center -mx-4">
+    <div className="bg-light-gray relative shadow-lg border-1 border-light-gray dark:bg-dark-mode-black font-rubik text-dark-text-gray dark:text-white dark:text-opacity-80 px-4 py-4 md:w-96 w-80">
+      <div className="font-medium leading-6 tracking-wide text-2xl flex justify-between items-center ">
         <div>
-          Add Custom File Extension
+          Add File Extension
           <span className="block text-sm mt-2 italic font-normal">
             this will be saved for future searches
           </span>
         </div>
-        <button onClick={onCancel}>&times;</button>
+        <div className="absolute top-2 right-4">
+          <button onClick={onCancel}>&times;</button>
+        </div>
       </div>
       <br />
       <div className="space-y-4">
