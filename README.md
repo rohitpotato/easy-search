@@ -8,7 +8,9 @@ https://easy-search.vercel.app/
 
 ## Screenshots
 
-<img src="https://rohit-misc.s3.ap-south-1.amazonaws.com/desktop-preview.png" data-canonical-src="https://rohit-misc.s3.ap-south-1.amazonaws.com/desktop-preview.png" width="768" height="400" /> <img src="https://rohit-misc.s3.ap-south-1.amazonaws.com/WhatsApp+Image+2021-07-30+at+9.32.57+PM.jpg" data-canonical-src="https://rohit-misc.s3.ap-south-1.amazonaws.com/WhatsApp+Image+2021-07-30+at+9.32.57+PM.jpg" />
+![App Screenshot](https://rohit-misc.s3.ap-south-1.amazonaws.com/desktop-preview.png)
+
+![App Screenshot](https://rohit-misc.s3.ap-south-1.amazonaws.com/WhatsApp+Image+2021-07-30+at+9.32.57+PM.jpg)
 
 ## Tech Stack
 
