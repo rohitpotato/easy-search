@@ -4,11 +4,15 @@ module.exports = {
   mode: "jit",
   theme: {
     fontFamily: {
-      titilium: ["Titillium Web", "sans-serif"],
+      rubik: ["Rubik", "sans-serif"],
     },
     extend: {
       colors: {
         "dark-mode-black": "#121212",
+        "light-gray": "#ECEDF3",
+        "light-text-purple": "#CBABF8",
+        "dark-text-gray": "#313654",
+        "light-bg-purple": "#F6EFFF",
       },
     },
   },

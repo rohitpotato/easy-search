@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState, forwardRef } from "react";
+import { useEffect, useRef } from "react";
 import Portal from "../Portal";
 
-const defaultOverlayClass = `fixed inset-0 h-screen w-screen backdrop-blur flex items-center justify-center`;
+const defaultOverlayClass = `fixed inset-0 h-screen w-screen backdrop-filter backdrop-blur-sm	flex items-center justify-center`;
 const defaultContentClass = "";
 
 function Component({

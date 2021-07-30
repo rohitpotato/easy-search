@@ -86,7 +86,7 @@ export const useHook = () => {
     return toSearch;
   };
 
-  const onSubmitClick = () => {
+  const onSubmitClick = (redirect = true) => {
     const term = getTerms();
     const query = `${termParam}${term}`;
     const sites = getSitesURIComponent();
@@ -103,7 +103,12 @@ export const useHook = () => {
       final += `${`${datePublishedParam}:${lastPublished}`}`;
     }
 
-    window.open(String(final), "_blank");
+    const redirectUrl = String(final);
+
+    if (redirect) {
+      window.open(redirectUrl, "_blank");
+    }
+    return String(redirectUrl);
   };
 
   const handleAddCustomWebsite = useCallback(

@@ -124,6 +124,7 @@ export const supportedFileFormats = {
   },
 };
 
+// for building urls
 export const params = {
   term: "q=",
   fileType: "fileType:",

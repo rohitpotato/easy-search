@@ -18,8 +18,10 @@ export const FileType = ({
   return (
     <button
       onClick={handleFileType}
-      className={`shadow font-titilium tracking-wide leading-7 font-semibold flex items-center justify-center gap-3 border-purple-100 text-black rounded px-2 py-2 ${
-        selectedFileType === value ? "bg-gray-700 text-white" : "bg-gray-200 "
+      className={`shadow font-rubik tracking-wide leading-7 font-medium flex items-center justify-center gap-3 border-purple-100 rounded px-2 py-2 ${
+        selectedFileType === value
+          ? "bg-purple-700 text-light-bg-purple"
+          : " bg-light-text-purple text-purple-700"
       }`}
     >
       {type}
