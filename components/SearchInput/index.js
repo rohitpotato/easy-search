@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Search } from "../icons/Search";
 import { MultiTextInput } from "../MultiTextInput";
 
 export const SearchInput = ({ setTerms, searchTerms, setIsExact, isExact }) => {
@@ -25,13 +25,8 @@ export const SearchInput = ({ setTerms, searchTerms, setIsExact, isExact }) => {
       <MultiTextInput
         placeholder="Enter your search query"
         LeftComponent={
-          <div className="ml-4 stroke-current">
-            <Image
-              src="/icons/search.svg"
-              alt="search-icon"
-              width={24}
-              height={24}
-            />
+          <div className="ml-4">
+            <Search />
           </div>
         }
         tags={searchTerms}

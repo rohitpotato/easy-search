@@ -8,7 +8,11 @@ export const DatePublished = ({
   handleRemoveCustomDatePublished,
 }) => {
   const handleDatePublished = () => {
-    setDatePublished(value);
+    if (isChecked) {
+      setDatePublished("");
+    } else {
+      setDatePublished(value);
+    }
   };
 
   const handleRemove = (event) => {

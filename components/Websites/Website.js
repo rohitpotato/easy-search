@@ -26,7 +26,7 @@ export const Website = ({
   return (
     <button
       onClick={handleSelect}
-      className={`py-4 pl-3 pr-3 flex gap-2  items-center justify-center relative rounded  shadow hover:shadow-md hover:bg-purple-700 hover:text-light-bg-purple  ${
+      className={`py-2 pl-3 pr-3 flex gap-2 items-center justify-center relative rounded  shadow hover:shadow-md border-2 border-opacity-0 hover:border-opacity-100 hover:border-2 hover:border-purple-700 hover:text-light-bg-purple dark:hover:text-opacity-80  ${
         isSelected
           ? "bg-purple-700 text-light-bg-purple"
           : "bg-light-text-purple text-purple-700"

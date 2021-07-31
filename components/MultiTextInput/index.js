@@ -75,11 +75,11 @@ export const MultiTextInput = ({
   return (
     <>
       <div className="w-full overflow-hidden" style={containerStyle}>
-        <div className="w-full rounded-md flex gap-1  dark:bg-dark-mode-black py-5 items-center relative shadow-md transparent border border-1 border-gray-500 text-dark-text-gray">
+        <div className="w-full rounded-lg flex gap-1 py-5  items-center relative shadow-md bg-[#e0e1eb] dark:filter-none dark:drop-shadow-none dark:bg-dark-mode-gray transparent text-dark-text-gray">
           {LeftComponent}
           <div style={inputContainerStyle} className=" px-4 w-full">
             <input
-              className="outline-none w-full bg-transparent font-rubik tracking-wider text-dark-text-gray placeholder-dark-text-gray dark:placeholder-white dark:placeholder-opacity-30 dark:text-white"
+              className="outline-none w-full bg-transparent font-rubik tracking-wide text-dark-text-gray placeholder-dark-text-gray dark:placeholder-white dark:placeholder-opacity-30 dark:text-white"
               style={inputStyle}
               value={term}
               placeholder={placeholder}
