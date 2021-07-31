@@ -7,7 +7,11 @@ export const FileType = ({
   handleRemoveCustomFileFormat,
 }) => {
   const handleFileType = () => {
-    setFileType(value);
+    if (selectedFileType === type) {
+      setFileType("");
+    } else {
+      setFileType(type);
+    }
   };
 
   const handleRemove = (event) => {

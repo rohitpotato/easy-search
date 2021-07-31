@@ -13,6 +13,7 @@ module.exports = {
         "light-text-purple": "#CBABF8",
         "dark-text-gray": "#313654",
         "light-bg-purple": "#F6EFFF",
+        "dark-mode-gray": "#212121",
       },
     },
   },

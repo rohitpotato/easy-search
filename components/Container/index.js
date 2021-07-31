@@ -55,9 +55,9 @@ const Container = () => {
 
   return (
     <>
-      <div className="dark:bg-black pb-16 bg-light-gray min-h-screen">
+      <div className="dark:bg-dark-mode-black pb-16 bg-light-gray min-h-screen">
         <Header />
-        <div className="mt-16 md:w-4/5 w-full mx-auto py-3 px-4">
+        <div className="my-16 md:w-4/5 w-full mx-auto py-3 px-4 relative flex flex-col">
           <div className="inline-flex w-full md:gap-4">
             <SearchInput
               setTerms={setTerms}
@@ -170,7 +170,7 @@ const Container = () => {
                 />
               </div>
             </div>
-            <div className="flex justify-center text-center my-12">
+            <div className="flex text-center justify-center mt-24">
               <Footer />
             </div>
           </div>

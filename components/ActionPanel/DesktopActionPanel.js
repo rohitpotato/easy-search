@@ -11,7 +11,7 @@ export const DesktopActionPanel = ({
         <Button
           onClick={onSubmitClick}
           disabled={!searchTerms.length}
-          className="!py-[1.35rem]"
+          className="!py-[1.225rem]"
           type="primary"
         >
           Search
@@ -22,7 +22,7 @@ export const DesktopActionPanel = ({
           onClick={onViewQueryClick}
           // disabled={!searchTerms.length}
           type="secondary"
-          className="!py-[1.35rem]  whitespace-nowrap"
+          className="!py-[1.225rem]  whitespace-nowrap"
         >
           View Query
         </Button>
