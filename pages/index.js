@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <Head>
         <title>Easy Search</title>
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta
           name="viewport"
@@ -37,7 +37,7 @@ export default function Home() {
         <meta name="msapplication-navbutton-color" content="#5900d1" />
         <meta name="msapplication-TileColor" content="#5900d1" />
         <meta name="msapplication-TileImage" content="ms-icon-144x144.png" />
-        {/* <meta name="msapplication-config" content="browserconfig.xml" /> */}
+        <meta name="msapplication-config" content="browserconfig.xml" />
 
         {/* <!-- Pinned Sites  --> */}
         <meta name="application-name" content="Easy Search" />
